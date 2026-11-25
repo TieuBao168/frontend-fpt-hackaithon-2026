@@ -1,0 +1,83 @@
+/* Design tokens – UI spec mục 2. Sáng/tối theo prefers-color-scheme (Mantine "auto"). */
+:root,
+[data-mantine-color-scheme='light'] {
+  --bg: #ffffff;
+  --ink: #14161b;
+  --muted: #5a6170;
+  --line: #e2e4ea;
+  --panel: #f4f5f7;
+  --shell: #16181e;
+  --shell2: #252933;
+  --accent: #f26a21;
+  --accent-soft: #fff0e6;
+  --manual: #2f6fdb;
+  --manual-soft: #e8f0ff;
+  --ok: #11804a;
+  --ok-soft: #e5f5ec;
+  --bad: #c0261a;
+  --bad-soft: #fdecea;
+  --player-bg: #0b0d12;
+}
+
+[data-mantine-color-scheme='dark'] {
+  --bg: #0e0f13;
+  --ink: #eceef2;
+  --muted: #9aa1ad;
+  --line: #2a2e37;
+  --panel: #171a20;
+  --shell: #08090c;
+  --shell2: #171a21;
+  --accent: #f26a21;
+  --accent-soft: #3a2315;
+  --manual: #6ea1ff;
+  --manual-soft: #18243d;
+  --ok: #3ccf86;
+  --ok-soft: #11301f;
+  --bad: #ff7b6e;
+  --bad-soft: #3a1714;
+}
+
+:root {
+  --mantine-color-body: var(--bg);
+  --mantine-color-text: var(--ink);
+  --mantine-color-dimmed: var(--muted);
+  --mantine-color-default-border: var(--line);
+  --mantine-color-placeholder: var(--muted);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus: outline 2px màu accent, offset 2px */
+:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+
+.mantine-Card-root,
+.mantine-Paper-root {
+  background: var(--bg);
+  border-color: var(--line);
+}
+
+.tinted {
+  background: var(--panel) !important;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tắt chuyển động khi người dùng yêu cầu */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

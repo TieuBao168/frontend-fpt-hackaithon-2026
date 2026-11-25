@@ -1,0 +1,40 @@
+/* Bố cục dùng chung cho các màn (không có thanh bên – khung app là header ngang của Mantine AppShell) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.grid-2-even {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.sticky-col {
+  position: sticky;
+  top: 72px;
+}
+
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .sticky-col {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .seg-thumb {
+    display: none !important;
+  }
+  .stack-sm {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+.inert-form {
+  opacity: 0.55;
+  pointer-events: none;
+}

@@ -1,0 +1,221 @@
+/* AppShell – UI spec mục 3: lưới 2 cột (thanh bên 220px + vùng màn) */
+.shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--shell);
+  color: #e9ebef;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 10px;
+  gap: 4px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px 14px;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+}
+
+.step-link {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px 8px 12px;
+  border-radius: 9px;
+  color: #c9ccd3;
+  text-decoration: none;
+  position: relative;
+  min-height: 44px;
+}
+
+.step-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.step-link.active {
+  background: var(--shell2);
+  color: #fff;
+}
+
+.step-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+.step-num {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1.5px solid #5a6170;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.step-link.active .step-num {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.step-link.done .step-num {
+  border-color: #3ccf86;
+  color: #3ccf86;
+}
+
+.step-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.step-uc {
+  font-size: 12px;
+  color: #8b91a0;
+  margin-top: 2px;
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  padding: 10px 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: #8b91a0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 26px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-height: 60px;
+}
+
+.screen {
+  flex: 1;
+  padding: 20px 26px 26px;
+}
+
+.footbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 40;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 10px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Dưới 900px: thanh bên thành hàng cuộn ngang, lưới 2 cột thành 1 cột */
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 8px;
+    gap: 6px;
+  }
+  .sidebar-logo {
+    padding: 4px 8px;
+    flex: none;
+  }
+  .step-link {
+    flex: none;
+  }
+  .step-uc,
+  .sidebar-foot {
+    display: none;
+  }
+  .topbar {
+    position: static;
+    padding: 10px 16px;
+  }
+  .screen {
+    padding: 16px;
+  }
+  .footbar {
+    padding: 10px 16px;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.grid-2-even {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.sticky-col {
+  position: sticky;
+  top: 76px;
+}
+
+@media (max-width: 900px) {
+  .sticky-col {
+    position: static;
+  }
+}
+
+/* Dưới 600px: thẻ đoạn thu gọn */
+@media (max-width: 600px) {
+  .seg-thumb {
+    display: none !important;
+  }
+  .stack-sm {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+.inert-form {
+  opacity: 0.55;
+  pointer-events: none;
+}

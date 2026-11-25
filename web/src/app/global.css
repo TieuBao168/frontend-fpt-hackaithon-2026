@@ -1,0 +1,46 @@
+/* Giao diện ban đầu (plan v7 mục V7.6): nền trắng, chỉ giao diện sáng, màu theo vai trò.
+   Các biến dưới đây được component dùng theo NGHĨA, không theo màu. */
+:root {
+  --app-bg: #f7f8fa; /* nền trang */
+  --bg: #ffffff; /* thẻ, drawer */
+  --ink: #101828; /* chữ chính */
+  --muted: #667085; /* chữ phụ */
+  --line: #e4e7ec; /* viền */
+  --panel: #f7f8fa; /* thẻ phụ nền xám nhạt */
+
+  --accent: #f26f21; /* cam – hành động chính, mục đang chọn */
+  --accent-soft: #fff3eb;
+  --ai: #1e6fd9; /* xanh dương – đoạn/nhãn do AI, đang xử lý */
+  --ai-soft: #ebf3ff;
+  --manual: #475467; /* xám đậm – đoạn thủ công */
+  --manual-soft: #f2f4f7;
+  --template: #98a2b3; /* xám nhạt – đầu/cuối clip */
+  --ok: #1a8049; /* xanh lá – xong */
+  --ok-soft: #eaf7ef;
+  --bad: #d63b3b; /* đỏ – chỉ cho lỗi */
+  --bad-soft: #fdeeee;
+  --player-bg: #0b0d12; /* khung video luôn nền tối */
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.tinted {
+  background: var(--panel) !important;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
